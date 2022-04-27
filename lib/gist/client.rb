@@ -74,6 +74,7 @@ module Gist
       http.read_timeout = 5 # seconds
       response = http.request(request)
       raise Gist::ApiError, response.body unless response.is_a?(Net::HTTPSuccess)
+
       json_response = JSON.parse(response.body)
       return json_response[request_class] if json_response.key?(request_class)
 

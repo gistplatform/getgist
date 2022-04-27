@@ -109,7 +109,7 @@ def example_create_contact
     "last_seen_ip": "",
     "last_seen_user_agent": "",
     "unsubscribed_from_emails": false,
-    "custom_properties": { "age": 23 },
+    "custom_properties": { "age_number": 23 },
     "tags": %w[tagA tagB tagC]
   }
 end
@@ -121,7 +121,7 @@ def example_invalid_contact
     "last_seen_ip": "",
     "last_seen_user_agent": "",
     "unsubscribed_from_emails": false,
-    "custom_properties": { "age": 23 },
+    "custom_properties": { "age_number": 23 },
     "tags": %w[tagA tagB tagC]
   }
 end
@@ -145,7 +145,7 @@ def example_batch
                    "last_seen_ip": "",
                    "last_seen_user_agent": "",
                    "unsubscribed_from_emails": false,
-                   "custom_properties": { "age": 23 },
+                   "custom_properties": { "age_number": 23 },
                    "tags": %w[tagA tagB tagC]
                  },
                  {
@@ -156,7 +156,7 @@ def example_batch
                    "last_seen_ip": "",
                    "last_seen_user_agent": "",
                    "unsubscribed_from_emails": false,
-                   "custom_properties": { "age": 25 },
+                   "custom_properties": { "age_number": 25 },
                    "tags": %w[tagd tage tagC]
                  }]
   }
@@ -180,14 +180,14 @@ end
 def example_create_conversation
   {
     "from": { "id": @contact['id'] }, "body": "Hello there!", "title": "Conversation title",
-    "custom_properties": { "user_id": 145, "city": "London", "last_seen": 1502979465, "active": true, }
+    "custom_properties": { "user_id": 145, "city": "London", "last_seen": 1502979465, "active": true }
   }
 end
 
 def example_invalid_conversation
   {
     "from": { "id": @contact['id'] }, "body": "", "title": "Conversation title",
-    "custom_properties": { "user_id": 145, "city": "London", "last_seen": 1502979465, "active": true, }
+    "custom_properties": { "user_id": 145, "city": "London", "last_seen": 1502979465, "active": true }
   }
 end
 
@@ -200,29 +200,29 @@ def example_update_conversation
 end
 
 def example_change_status
-  { "state": "closed", "teammate_id": 31 }
+  { "state": "closed", "teammate_id": 9539 }
 end
 
 def invalid_change_status
-  { "state": "", "teammate_id": 31 }
+  { "state": "", "teammate_id": 9539 }
 end
 
 def example_priority
-  { "teammate_id": 31, "priority": "priority" }
+  { "teammate_id": 9539, "priority": "priority" }
 end
 
 def example_assign
-  { "teammate_id": 31, "assignee_id": 31, "assignee_type": "teammate" }
+  { "teammate_id": 9539, "assignee_id": 9539, "assignee_type": "teammate" }
 end
 
 def example_unassign
-  { "teammate_id": 31, "assignee_id": nil }
+  { "teammate_id": 9539, "assignee_id": nil }
 end
 
 def example_reply
   {
     "message_type": "reply",
-    "from": { "type": "teammate", "teammate_id": 31 },
+    "from": { "type": "teammate", "teammate_id": 9539 },
     "body": "thank you"
   }
 end
@@ -230,7 +230,7 @@ end
 def example_invalid_reply
   {
     "message_type": "reply",
-    "from": { "type": "teammate", "teammate_id": 31 },
+    "from": { "type": "teammate", "teammate_id": 9539 },
     "body": ""
   }
 end
