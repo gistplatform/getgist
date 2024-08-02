@@ -4,7 +4,7 @@ module Gist
   class Client
     def initialize(access_token:)
       @access_token = access_token
-      @url = "https://aws-api-testing.getgist.com/"
+      @url = "https://developers-api-testing.getgist.com/"
     end
 
     def contacts
